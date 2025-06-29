@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html>
+<label>Username</label>
+<input type="text" name="username" placeholder="username" />
+
+<label>Password</label>
+<input type="password" name="password" placeholder="password" />
+
+
+</html>
