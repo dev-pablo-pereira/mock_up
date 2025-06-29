@@ -8,7 +8,7 @@
 <body class="flex h-screen items-center justify-center bg-[#9f7fa3]">
     <form action="{{ route('admin.present') }}" class="flex flex-col items-center gap-4 rounded bg-[#662775] p-6 shadow">
         <label>Username</label>
-        <input type="text" name="username" placeholder="username"
+        <input type="text" name="username" placeholder="username" value="{{ old('username') }}"
             class="color-white rounded border bg-[#9f7fa3] px-2 py-1" />
         @error('username')
             <p class="text-red-500">{{ $message }}</p>
