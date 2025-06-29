@@ -11,4 +11,12 @@ class AdminController extends Controller
     {
         return view('admin.login');
     }
+
+    public function present(Request $request) {
+        
+        $request->validate([
+            'username' => 'required',
+            'password' => 'required',
+        ]);
+    }
 }
