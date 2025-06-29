@@ -18,5 +18,7 @@ class AdminController extends Controller
             'username' => 'required',
             'password' => 'required',
         ]);
+
+        return redirect()->route('admin.hotel.new');
     }
 }
