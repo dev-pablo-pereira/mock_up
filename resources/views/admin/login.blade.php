@@ -20,6 +20,8 @@
             <p class="text-red-500">{{ $message }}</p>
         @enderror
 
+        <a href="{{ route('admin.create') }}" class="text-white">Novo Usuário</a>
+
         <button type="submit" class="rounded bg-[#1f0d21] px-4 py-2 text-white">Login</button>
     </form>
 </body>
