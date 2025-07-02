@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin\Hotel;
 
 use App\Http\Controllers\Controller;
+use App\Models\Hotel;
 use Illuminate\Http\Request;
 
 class HotelController extends Controller
@@ -10,21 +11,24 @@ class HotelController extends Controller
     public function index() {
         return view('admin.hotel.index');
     }
-    public function new() {
+    public function create() {
         return view('admin.hotel.new');
     }
 
-    public function create(Request $request) {
+    public function store(Request $request) {
 
-        $request->validate([
+        $data = $request->validate([
             'name' => 'required',
             'state' => 'required',
             'city' =>  'required',
             'street' => 'required',
             'number' => 'required',
-            'rooms' => 'required',
+            'room' => 'required',
         ]);
 
-        return redirect()->route('admin.hotel.index');
+        $data['user_id'] = 1; // adiciona o id do usuário logado
+
+        Hotel::create($data);
+        return view('admin.hotel.index');
     }
 }
