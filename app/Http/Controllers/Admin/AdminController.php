@@ -22,7 +22,7 @@ class AdminController extends Controller
             ]
         );
         User::create($data);
-        return redirect()->route('admin.login');
+        return redirect()->route('admin.hotel.index');
     }
 
     public function index()
@@ -37,6 +37,6 @@ class AdminController extends Controller
             'password' => 'required',
         ]);
 
-        return redirect()->route('admin.hotel.new');
+        return redirect()->route('admin.hotel.create');
     }
 }
