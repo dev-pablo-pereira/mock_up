@@ -11,6 +11,6 @@ Route::group(['prefix' => 'admin'], function () {
     Route::post('/store', [AdminController::class, 'store'])->name('admin.store');
 
     Route::get('/hotel', [HotelController::class, 'index'])->name('admin.hotel.index');
-    Route::get('/new_hotel', [HotelController::class, 'new'])->name('admin.hotel.new');
-    Route::post('/create_hotel', [HotelController::class, 'create'])->name('admin.hotel.create');
+    Route::get('/new_hotel', [HotelController::class, 'create'])->name('admin.hotel.create');
+    Route::post('/create_hotel', [HotelController::class, 'store'])->name('admin.hotel.store');
 });
