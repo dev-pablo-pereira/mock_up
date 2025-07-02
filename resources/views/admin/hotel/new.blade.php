@@ -6,7 +6,7 @@
 </head>
 
 <body class="flex h-screen items-center justify-center bg-[#9f7fa3]">
-    <form action="{{ route('admin.hotel.create') }}" method="POST"
+    <form action="{{ route('admin.hotel.store') }}" method="POST"
         class="flex w-1/3 flex-col items-center gap-4 rounded bg-[#662775] p-6 shadow">
         @csrf
 
@@ -50,9 +50,9 @@
         @enderror
 
         <label>Quartos</label>
-        <input type="text" placeholder="Quartos" name="rooms"
+        <input type="text" placeholder="Quartos" name="room"
             class="color-white rounded border bg-[#9f7fa3] px-2 py-1" />
-        @error('rooms')
+        @error('room')
             <p class="text-red-500">{{ $message }}</p>
         @enderror
 
