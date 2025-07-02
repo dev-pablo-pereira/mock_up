@@ -7,15 +7,14 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Hotel extends Model
 {
-    protected $filallable = [
+    protected $fillable = [
         'name',
-        'address',
+        'state',
         'city',
-        'country',
-        'phone',
-        'email',
-        'image',
-        'user_id'
+        'street',
+        'number',
+        'room',
+        'user_id',
     ];
 
     public function user(): BelongsTo {
