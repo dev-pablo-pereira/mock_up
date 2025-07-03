@@ -30,7 +30,7 @@ class HotelController extends Controller
         $data['user_id'] = Auth::user()->id;
 
         Hotel::create($data);
-        return view('admin.hotel.index');
+        return view('admin.index');
     }
 
     public function edit($id) {
@@ -51,6 +51,13 @@ class HotelController extends Controller
 
         $hotel = Hotel::findOrFail($id);
         $hotel->update($data);
+
+        return redirect()->route('admin.index');
+    }
+
+    public function destroy($id) {
+        $hotel = Hotel::find($id);
+        $hotel->delete();
 
         return redirect()->route('admin.index');
     }

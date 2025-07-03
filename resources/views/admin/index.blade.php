@@ -16,6 +16,11 @@
                 {{ $hotel->city }}, {{ $hotel->state }} - {{ $hotel->street }}, Nº {{ $hotel->number }} - Quarto:
                 {{ $hotel->room }} - {{ $hotel->id }}
                 <a href="{{ route('admin.hotel.edit', $hotel->id) }}" class="text-white">Editar</a>
+                <form action="{{ route('admin.hotel.destroy', $hotel->id) }}" method="POST" style="display:inline;">
+                    @csrf
+                    <button type="submit" class="text-white">Deletar</button>
+                </form>
+
             </li>
         @endforeach
     </ul>
