@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Hotel;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
@@ -27,6 +29,9 @@ class AdminController extends Controller
 
     public function index()
     {
-        return view('admin.index');
+        $hotels = Hotel::where('user_id', Auth::user()->id)
+        ->get();
+        
+        return view('admin.index',['hotels' => $hotels]);
     }
 }

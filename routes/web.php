@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\Hotel\HotelController;
 use App\Http\Controllers\AuthController;
+use App\Models\Hotel;
 use Illuminate\Support\Facades\Route;
 
 Route::group(['prefix' => 'admin'], function () {
@@ -16,4 +17,6 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('/hotel', [HotelController::class, 'index'])->name('admin.hotel.index');
     Route::get('/new_hotel', [HotelController::class, 'create'])->name('admin.hotel.create');
     Route::post('/create_hotel', [HotelController::class, 'store'])->name('admin.hotel.store');
+    Route::get('/edit/{id}', [HotelController::class, 'edit'])->name('admin.hotel.edit');
+    Route::put('/update/{id}', [HotelController::class, 'update'])->name('admin.hotel.update');
 });
