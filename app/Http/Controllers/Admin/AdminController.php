@@ -22,21 +22,11 @@ class AdminController extends Controller
             ]
         );
         User::create($data);
-        return redirect()->route('admin.hotel.index');
+        return redirect()->route('admin.index');
     }
 
     public function index()
     {
-        return view('admin.login');
-    }
-
-    public function present(Request $request) {
-        
-        $request->validate([
-            'username' => 'required',
-            'password' => 'required',
-        ]);
-
-        return redirect()->route('admin.hotel.create');
+        return view('admin.index');
     }
 }

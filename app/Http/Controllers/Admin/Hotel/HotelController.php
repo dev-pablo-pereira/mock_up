@@ -26,7 +26,7 @@ class HotelController extends Controller
             'room' => 'required',
         ]);
 
-        $data['user_id'] = 1; // adiciona o id do usuário logado
+        $data['user_id'] = 1;
 
         Hotel::create($data);
         return view('admin.hotel.index');

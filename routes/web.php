@@ -2,11 +2,14 @@
 
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\Hotel\HotelController;
+use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 
 Route::group(['prefix' => 'admin'], function () {
-    Route::get('/login', [AdminController::class, 'index'])->name('admin.login');
-    Route::get('/present', [AdminController::class, 'present'])->name('admin.present');
+    Route::get('/login', [AuthController::class, 'login'])->name('admin.login');
+    Route::post('/authenticate', [AuthController::class, 'authenticate'])->name('admin.authenticate');
+    
+    Route::get('/index', [AdminController::class, 'index'])->name('admin.index');
     Route::get('/create', [AdminController::class, 'create'])->name('admin.create');
     Route::post('/store', [AdminController::class, 'store'])->name('admin.store');
 
