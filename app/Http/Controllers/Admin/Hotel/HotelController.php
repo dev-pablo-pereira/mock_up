@@ -59,6 +59,6 @@ class HotelController extends Controller
         $hotel = Hotel::find($id);
         $hotel->delete();
 
-        return redirect()->route('admin.index');
+        return redirect()->route('admin.index');    
     }
 }
