@@ -6,11 +6,14 @@
 </head>
 
 <body class="flex h-screen items-center justify-center bg-[#9f7fa3]">
-    <form action="{{ route('admin.present') }}" class="flex flex-col items-center gap-4 rounded bg-[#662775] p-6 shadow">
+    <form action="{{ route('admin.authenticate') }}" method="POST"
+        class="flex flex-col items-center gap-4 rounded bg-[#662775] p-6 shadow">
+        @csrf
+
         <label>Username</label>
-        <input type="text" name="username" placeholder="username" value="{{ old('username') }}"
+        <input type="email" name="email" placeholder="username" value="{{ old('username') }}"
             class="color-white rounded border bg-[#9f7fa3] px-2 py-1" />
-        @error('username')
+        @error('email')
             <p class="text-red-500">{{ $message }}</p>
         @enderror
 

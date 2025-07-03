@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Hotel;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
@@ -22,21 +24,14 @@ class AdminController extends Controller
             ]
         );
         User::create($data);
-        return redirect()->route('admin.login');
+        return redirect()->route('admin.index');
     }
 
     public function index()
     {
-        return view('admin.login');
-    }
-
-    public function present(Request $request) {
+        $hotels = Hotel::where('user_id', Auth::user()->id)
+        ->get();
         
-        $request->validate([
-            'username' => 'required',
-            'password' => 'required',
-        ]);
-
-        return redirect()->route('admin.hotel.new');
+        return view('admin.index',['hotels' => $hotels]);
     }
 }
