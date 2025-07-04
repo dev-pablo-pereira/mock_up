@@ -6,7 +6,7 @@
 </head>
 
 <body class="flex h-screen items-center justify-center bg-[#9f7fa3]">
-    <form action="{{ route('admin.hotel.store') }}" method="POST"
+    <form action="{{ route('admin.hotel.store') }}" method="POST" enctype="multipart/form-data"
         class="flex w-1/3 flex-col items-center gap-4 rounded bg-[#662775] p-6 shadow">
         @csrf
 
@@ -55,6 +55,8 @@
         @error('room')
             <p class="text-red-500">{{ $message }}</p>
         @enderror
+
+        <input type="file" placeholder="image" name="image[]" multiple="multiple" />
 
         <button type="submit" class="rounded bg-[#1f0d21] px-4 py-2 text-white">Salvar</button>
     </form>

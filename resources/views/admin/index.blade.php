@@ -16,6 +16,12 @@
                 {{ $hotel->city }}, {{ $hotel->state }} - {{ $hotel->street }}, Nº {{ $hotel->number }} - Quarto:
                 {{ $hotel->room }} - {{ $hotel->id }}
                 <a href="{{ route('admin.hotel.edit', $hotel->id) }}" class="text-white">Editar</a>
+
+                @foreach ($hotel->images as $image)
+                    <img src="{{ asset('storage/images/' . $image->path) }}" alt="Imagem do hotel" width="90"
+                        height="90">
+                @endforeach
+
                 <form action="{{ route('admin.hotel.destroy', $hotel->id) }}" method="POST" style="display:inline;">
                     @csrf
                     <button type="submit" class="text-white">Deletar</button>

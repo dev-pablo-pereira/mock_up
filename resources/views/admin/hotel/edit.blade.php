@@ -57,6 +57,21 @@
             <p class="text-red-500">{{ $message }}</p>
         @enderror
 
+        @foreach ($hotel->images as $image)
+            <div class="relative inline-block">
+                <img src="{{ asset('storage/images/' . $image->path) }}" alt="Imagem do hotel"
+                    class="h-40 w-40 rounded object-cover">
+
+                <form action="{{ route('admin.image.destroy', $image->id) }}" method="POST"
+                    class="absolute right-0 top-0">
+                    @csrf
+                    <button type="submit" class="rounded bg-gray-500 px-2 py-1 text-xs text-white">
+                        Deletar
+                    </button>
+                </form>
+            </div>
+        @endforeach
+
         <button type="submit" class="rounded bg-[#1f0d21] px-4 py-2 text-white">Salvar</button>
     </form>
 </body>
