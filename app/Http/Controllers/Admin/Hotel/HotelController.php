@@ -10,10 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class HotelController extends Controller
-{
-    public function index() {
-        return view('admin.hotel.index');
-    }
+{   
     public function create() {
         return view('admin.hotel.new');
     }
@@ -53,8 +50,9 @@ class HotelController extends Controller
 
     public function edit($id) {
         $hotel = Hotel::findOrFail($id);
+        $images = Image::where('hotel_id', $hotel->id)->get();
 
-        return view('admin.hotel.edit', ['hotel' => $hotel]);
+        return view('admin.hotel.edit', ['hotel' => $hotel, 'images' => $images]);
     }
 
     public function update(Request $request, $id) {

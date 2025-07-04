@@ -2,8 +2,8 @@
 
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\Hotel\HotelController;
+use App\Http\Controllers\Admin\ImageController;
 use App\Http\Controllers\AuthController;
-use App\Models\Hotel;
 use Illuminate\Support\Facades\Route;
 
 Route::group(['prefix' => 'admin'], function () {
@@ -20,4 +20,6 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('/edit/{id}', [HotelController::class, 'edit'])->name('admin.hotel.edit');
     Route::put('/update/{id}', [HotelController::class, 'update'])->name('admin.hotel.update');
     Route::post('/destroy/{id}', [HotelController::class, 'destroy'])->name('admin.hotel.destroy');
+
+    Route::post('/destroy/image/{id}', [ImageController::class, 'destroy'])->name('admin.image.destroy');
 });
