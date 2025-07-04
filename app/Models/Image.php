@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Image extends Model
 {
     protected $fillable = [
-        'url',
+        'path',
         'hotel_id',
     ];
 
